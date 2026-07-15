@@ -1,10 +1,14 @@
 {
   "scripts": {
+    "prepare-flags": "node scripts/copy-flags.mjs",
+    "predev": "npm run prepare-flags",
     "dev": "elm-live src/Main.elm --dir=public -- --output=public/elm.js",
+    "prebuild": "npm run prepare-flags",
     "build": "elm make src/Main.elm --optimize --output=public/elm.js"
   },
   "devDependencies": {
     "elm": "^0.19.1-6",
-    "elm-live": "^4.0.2"
+    "elm-live": "^4.0.2",
+    "flag-icons": "^7.5.0"
   }
 }

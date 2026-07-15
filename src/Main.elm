@@ -1,9 +1,10 @@
 module Main exposing (main)
 
 import Browser
+import Countries exposing (countryLabel)
 import Games exposing (Game, games)
-import Html exposing (Html, button, div, h1, h2, h3, h4, p, span, table, tbody, td, text, th, thead, tr)
-import Html.Attributes exposing (class, disabled)
+import Html exposing (Html, a, button, div, footer, h1, h2, h3, h4, img, p, span, table, tbody, td, text, th, thead, tr)
+import Html.Attributes exposing (alt, class, disabled, href, rel, src, target)
 import Html.Events exposing (onClick)
 
 
@@ -29,6 +30,7 @@ type MatchGrouping
 
 type alias Model =
     { page : Page
+    , darkMode : Bool
     , sortMode : SortMode
     , sortMenuOpen : Bool
     , matchGrouping : MatchGrouping
@@ -45,6 +47,7 @@ type Msg
     | SetSort SortMode
     | ToggleMatchGroupingMenu
     | SetMatchGrouping MatchGrouping
+    | ToggleDarkMode
 
 
 main : Program () Model Msg
@@ -52,6 +55,7 @@ main =
     Browser.sandbox
         { init =
             { page = Home
+            , darkMode = False
             , sortMode = AlphabeticalAscending
             , sortMenuOpen = False
             , matchGrouping = ByDays
@@ -89,45 +93,167 @@ update msg model =
         SetMatchGrouping grouping ->
             { model | matchGrouping = grouping, matchGroupingMenuOpen = False }
 
+        ToggleDarkMode ->
+            { model | darkMode = not model.darkMode }
+
 
 view : Model -> Html Msg
 view model =
-    div [ class "page" ]
-        [ case model.page of
-            Home ->
-                viewHome
+    div
+        [ class
+            (if model.darkMode then
+                "app-shell dark-mode"
 
-            Countries ->
-                viewSubpage "Länderliste" (viewList model)
+             else
+                "app-shell"
+            )
+        ]
+        [ div [ class "page" ]
+            [ div [ class "theme-row" ]
+                [ button [ class "theme-toggle", onClick ToggleDarkMode ]
+                    [ img
+                        [ class "theme-icon"
+                        , src
+                            (if model.darkMode then
+                                "icons/sun.svg"
 
-            Groups ->
-                viewSubpage "Gruppen" (div [] (List.map viewGroup groupNames))
+                             else
+                                "icons/moon.svg"
+                            )
+                        , alt ""
+                        ]
+                        []
+                    , span [ class "visually-hidden" ]
+                        [ text
+                            (if model.darkMode then
+                                "Light Mode einschalten"
 
-            Matches ->
-                viewSubpage "Spiele und Ergebnisse" (viewMatches model)
+                             else
+                                "Dark Mode einschalten"
+                            )
+                        ]
+                    ]
+                ]
+            , case model.page of
+                Home ->
+                    viewHome
+
+                Countries ->
+                    viewSubpage Countries "Länderliste" (viewList model)
+
+                Groups ->
+                    viewSubpage Groups "Gruppen" (div [] (List.map viewGroup groupNames))
+
+                Matches ->
+                    viewSubpage Matches "Spiele und Ergebnisse" (viewMatches model)
+            ]
+        , viewFooter
+        ]
+
+
+viewFooter : Html Msg
+viewFooter =
+    footer [ class "site-footer" ]
+        [ div [ class "footer-content" ]
+            [ div [ class "footer-project" ]
+                [ span [] [ text "WWW-Projekt MLU Halle 2026" ]
+                , span [ class "footer-names" ] [ text "© 2026 Benjamin Lautenbach · Nikoloz Iashvili" ]
+                ]
+            , div [ class "footer-actions" ]
+                [ a
+                    [ href "https://github.com/HelloMyNameNikoloz/www_wm"
+                    , target "_blank"
+                    , rel "noopener noreferrer"
+                    ]
+                    [ text "GitHub" ]
+                , button [ disabled True ] [ text "Kontakt" ]
+                ]
+            ]
         ]
 
 
 viewHome : Html Msg
 viewHome =
     div [ class "home" ]
-        [ h1 [] [ text "World Cup Guesser" ]
-        , div [ class "home-menu" ]
+        [ div [ class "home-tabs" ]
             [ button [ onClick ShowCountries ] [ text "Länderliste" ]
             , button [ onClick ShowGroups ] [ text "Gruppenansicht" ]
             , button [ onClick ShowMatches ] [ text "Spiele und Ergebnisse" ]
             , button [ disabled True ] [ text "Quiz" ]
             ]
+        , div [ class "hero" ]
+            [ h1 [] [ text "World Cup Guesser" ]
+            --, p [] [ text "Die Fußball-WM 2026 entdecken und dein Wissen testen." ]
+            ]
+        , viewFinalGames
         ]
 
 
-viewSubpage : String -> Html Msg -> Html Msg
-viewSubpage title content =
-    div []
-        [ button [ class "back-button", onClick ShowHome ] [ text "Zurück zur Startseite" ]
+viewFinalGames : Html Msg
+viewFinalGames =
+    div [ class "featured-finals" ]
+        [ h2 [] [ text "Die letzten Spiele" ]
+        , div [ class "final-games" ]
+            [ viewFinalGame 103 "Spiel um Platz 3" "Miami Stadium"
+            , viewFinalGame 104 "Finale" "New York New Jersey Stadium"
+            ]
+        ]
+
+
+viewFinalGame : Int -> String -> String -> Html Msg
+viewFinalGame matchNumber label venue =
+    case List.head (List.filter (\game -> game.number == matchNumber) games) of
+        Just game ->
+            div [ class "final-game-card" ]
+                [ span [ class "final-game-label" ] [ text label ]
+                , div [ class "final-game-fixture" ]
+                    [ countryLabel game.home
+                    , span [ class "final-game-separator" ] [ text "–" ]
+                    , countryLabel game.away
+                    ]
+                , div [ class "final-game-meta" ]
+                    [ span [ class "final-game-date" ] [ text (game.date ++ " · " ++ game.time ++ " Uhr") ]
+                    , span [ class "final-game-venue" ] [ text venue ]
+                    ]
+                ]
+
+        Nothing ->
+            text ""
+
+
+viewSubpage : Page -> String -> Html Msg -> Html Msg
+viewSubpage currentPage title content =
+    div [ class "subpage" ]
+        [ viewSectionNav currentPage
         , h1 [] [ text title ]
         , content
         ]
+
+
+viewSectionNav : Page -> Html Msg
+viewSectionNav currentPage =
+    div [ class "section-nav" ]
+        [ navButton currentPage Home ShowHome "Startseite"
+        , navButton currentPage Countries ShowCountries "Länder"
+        , navButton currentPage Groups ShowGroups "Gruppen"
+        , navButton currentPage Matches ShowMatches "Spiele"
+        , button [ disabled True ] [ text "Quiz" ]
+        ]
+
+
+navButton : Page -> Page -> Msg -> String -> Html Msg
+navButton currentPage targetPage message label =
+    button
+        [ class
+            (if currentPage == targetPage then
+                "active"
+
+             else
+                ""
+            )
+        , onClick message
+        ]
+        [ text label ]
 
 
 viewList : Model -> Html Msg
@@ -383,9 +509,9 @@ stageColumnTitle currentGames =
 viewFixture : Game -> Html Msg
 viewFixture match =
     div [ class "fixture" ]
-        [ span [ class "fixture-home" ] [ text match.home ]
+        [ span [ class "fixture-home" ] [ countryLabel match.home ]
         , span [ class "fixture-score" ] [ text match.score ]
-        , span [ class "fixture-away" ] [ text match.away ]
+        , span [ class "fixture-away" ] [ countryLabel match.away ]
         ]
 
 
@@ -453,7 +579,7 @@ alphabeticalName name =
 viewRankingRow : Team -> Html Msg
 viewRankingRow country =
     tr []
-        [ td [] [ text (country.name) ]
+        [ td [] [ countryLabel country.name ]
         , td [] [ text (String.fromInt country.rank) ]
         , td [] [ text country.rankingPoints ]
         ]
@@ -489,7 +615,7 @@ viewGroup groupName =
 viewGroupRow : Team -> Html Msg
 viewGroupRow country =
     tr []
-        [ td [] [ text country.name ]
+        [ td [] [ countryLabel country.name ]
         , td [] [ text (String.fromInt country.wins) ]
         , td [] [ text (String.fromInt country.draws) ]
         , td [] [ text (String.fromInt country.losses) ]

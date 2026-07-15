@@ -6,6 +6,7 @@ elm-stuff/
 
 # Compiled output (rebuilt on every deploy)
 public/elm.js
+public/flags/
 
 # Course material (not part of the app)
 Voraussetzungen/
