@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Ägypten",
+    "code": "eg"
+  },
+  {
+    "name": "Algerien",
+    "code": "dz"
+  },
+  {
+    "name": "Argentinien",
+    "code": "ar"
+  },
+  {
+    "name": "Australien",
+    "code": "au"
+  },
+  {
+    "name": "Belgien",
+    "code": "be"
+  },
+  {
+    "name": "Bosnien und Herzegowina",
+    "code": "ba"
+  },
+  {
+    "name": "Brasilien",
+    "code": "br"
+  },
+  {
+    "name": "Curaçao",
+    "code": "cw"
+  },
+  {
+    "name": "Deutschland",
+    "code": "de"
+  },
+  {
+    "name": "DR Kongo",
+    "code": "cd"
+  },
+  {
+    "name": "Ecuador",
+    "code": "ec"
+  },
+  {
+    "name": "Elfenbeinküste",
+    "code": "ci"
+  },
+  {
+    "name": "England",
+    "code": "gb-eng"
+  },
+  {
+    "name": "Frankreich",
+    "code": "fr"
+  },
+  {
+    "name": "Ghana",
+    "code": "gh"
+  },
+  {
+    "name": "Haiti",
+    "code": "ht"
+  },
+  {
+    "name": "IR Iran",
+    "code": "ir"
+  },
+  {
+    "name": "Iran",
+    "code": "ir"
+  },
+  {
+    "name": "Irak",
+    "code": "iq"
+  },
+  {
+    "name": "Japan",
+    "code": "jp"
+  },
+  {
+    "name": "Jordanien",
+    "code": "jo"
+  },
+  {
+    "name": "Kanada",
+    "code": "ca"
+  },
+  {
+    "name": "Kap Verde",
+    "code": "cv"
+  },
+  {
+    "name": "Katar",
+    "code": "qa"
+  },
+  {
+    "name": "Kolumbien",
+    "code": "co"
+  },
+  {
+    "name": "Kroatien",
+    "code": "hr"
+  },
+  {
+    "name": "Marokko",
+    "code": "ma"
+  },
+  {
+    "name": "Mexiko",
+    "code": "mx"
+  },
+  {
+    "name": "Neuseeland",
+    "code": "nz"
+  },
+  {
+    "name": "Niederlande",
+    "code": "nl"
+  },
+  {
+    "name": "Norwegen",
+    "code": "no"
+  },
+  {
+    "name": "Österreich",
+    "code": "at"
+  },
+  {
+    "name": "Panama",
+    "code": "pa"
+  },
+  {
+    "name": "Paraguay",
+    "code": "py"
+  },
+  {
+    "name": "Portugal",
+    "code": "pt"
+  },
+  {
+    "name": "Republik Korea",
+    "code": "kr"
+  },
+  {
+    "name": "Saudi-Arabien",
+    "code": "sa"
+  },
+  {
+    "name": "Schottland",
+    "code": "gb-sct"
+  },
+  {
+    "name": "Schweden",
+    "code": "se"
+  },
+  {
+    "name": "Schweiz",
+    "code": "ch"
+  },
+  {
+    "name": "Senegal",
+    "code": "sn"
+  },
+  {
+    "name": "Spanien",
+    "code": "es"
+  },
+  {
+    "name": "Südafrika",
+    "code": "za"
+  },
+  {
+    "name": "Südkorea",
+    "code": "kr"
+  },
+  {
+    "name": "Tschechien",
+    "code": "cz"
+  },
+  {
+    "name": "Tunesien",
+    "code": "tn"
+  },
+  {
+    "name": "Türkei",
+    "code": "tr"
+  },
+  {
+    "name": "Uruguay",
+    "code": "uy"
+  },
+  {
+    "name": "USA",
+    "code": "us"
+  },
+  {
+    "name": "Usbekistan",
+    "code": "uz"
+  }
+]

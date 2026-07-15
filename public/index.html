@@ -10,7 +10,31 @@
     <div id="app"></div>
     <script src="elm.js"></script>
     <script>
-      Elm.Main.init({ node: document.getElementById("app") });
+      const loadJson = async (path) => {
+        const response = await fetch(path);
+
+        if (!response.ok) {
+          throw new Error(`${path}: ${response.status} ${response.statusText}`);
+        }
+
+        return response.json();
+      };
+
+      Promise.all([
+        loadJson("data/teams.json"),
+        loadJson("data/games.json"),
+        loadJson("data/countries.json")
+      ])
+        .then(([teams, games, countries]) => {
+          Elm.Main.init({
+            node: document.getElementById("app"),
+            flags: { teams, games, countries }
+          });
+        })
+        .catch((error) => {
+          document.getElementById("app").textContent =
+            `Die Turnierdaten konnten nicht geladen werden: ${error.message}`;
+        });
     </script>
   </body>
 </html>

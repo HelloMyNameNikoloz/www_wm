@@ -1,0 +1,67 @@
+module Data.Decoder exposing (tournament)
+
+import Data.Types exposing (Game, Team, Tournament)
+import Json.Decode as Decode exposing (Decoder)
+
+
+tournament : Decoder Tournament
+tournament =
+    Decode.map3
+        (\teams games countries ->
+            { teams = teams, games = games, countries = countries }
+        )
+        (Decode.field "teams" (Decode.list team))
+        (Decode.field "games" (Decode.list game))
+        (Decode.field "countries" (Decode.list country))
+
+
+country : Decoder { name : String, code : String }
+country =
+    Decode.map2 (\name code -> { name = name, code = code })
+        (Decode.field "name" Decode.string)
+        (Decode.field "code" Decode.string)
+
+
+game : Decoder Game
+game =
+    Decode.map8
+        (\number date time stage home away score venue ->
+            { number = number, date = date, time = time, stage = stage
+            , home = home, away = away, score = score, venue = venue
+            }
+        )
+        (Decode.field "number" Decode.int)
+        (Decode.field "date" Decode.string)
+        (Decode.field "time" Decode.string)
+        (Decode.field "stage" Decode.string)
+        (Decode.field "home" Decode.string)
+        (Decode.field "away" Decode.string)
+        (Decode.field "score" Decode.string)
+        (Decode.maybe (Decode.field "venue" Decode.string))
+
+
+team : Decoder Team
+team =
+    Decode.map3 (\build goalsAgainst points -> build goalsAgainst points)
+        teamBase
+        (Decode.field "goalsAgainst" Decode.int)
+        (Decode.field "points" Decode.int)
+
+
+teamBase : Decoder (Int -> Int -> Team)
+teamBase =
+    Decode.map8
+        (\group name rank rankingPoints wins draws losses goalsFor goalsAgainst points ->
+            { group = group, name = name, rank = rank, rankingPoints = rankingPoints
+            , wins = wins, draws = draws, losses = losses, goalsFor = goalsFor
+            , goalsAgainst = goalsAgainst, points = points
+            }
+        )
+        (Decode.field "group" Decode.string)
+        (Decode.field "name" Decode.string)
+        (Decode.field "rank" Decode.int)
+        (Decode.field "rankingPoints" Decode.string)
+        (Decode.field "wins" Decode.int)
+        (Decode.field "draws" Decode.int)
+        (Decode.field "losses" Decode.int)
+        (Decode.field "goalsFor" Decode.int)
