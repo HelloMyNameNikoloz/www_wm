@@ -21,6 +21,27 @@ button {
   padding: 6px 12px;
 }
 
+.home-menu {
+  display: grid;
+  max-width: 520px;
+  gap: 16px;
+}
+
+.home-menu button {
+  min-height: 72px;
+  padding: 16px;
+  font: inherit;
+  font-size: 20px;
+}
+
+.home-menu button:disabled {
+  cursor: not-allowed;
+}
+
+.back-button {
+  margin-bottom: 8px;
+}
+
 .sort-dropdown {
   position: relative;
   width: max-content;
@@ -121,4 +142,89 @@ button {
 .ranking-table th:nth-child(2),
 .ranking-table td:nth-child(2) {
   text-align: center;
+}
+
+.matches-table {
+  width: 900px;
+  min-width: 900px;
+  table-layout: fixed;
+}
+
+.matches-table th:first-child,
+.matches-table td:first-child {
+  text-align: center;
+}
+
+.fixture {
+  display: grid;
+  grid-template-columns: 195px 130px 195px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.fixture-home {
+  text-align: left;
+}
+
+.fixture-score {
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+}
+
+.fixture-away {
+  text-align: left;
+}
+
+.matches-table .date-cell {
+  width: 110px;
+}
+
+.matches-table .time-cell {
+  width: 90px;
+}
+
+.matches-table .stage-cell {
+  width: 140px;
+}
+
+.matches-table .game-cell {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.results-section {
+  margin-top: 40px;
+}
+
+.results-section-title {
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #888;
+}
+
+.match-block {
+  margin-bottom: 28px;
+}
+
+.match-block h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.match-block h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.matchday-block {
+  margin-bottom: 48px;
+}
+
+.matchday-title {
+  margin: 0 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #aaa;
+  font-size: 24px;
 }
