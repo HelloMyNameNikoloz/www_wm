@@ -51,6 +51,7 @@ type alias Model =
     , quizCategory : Maybe String
     , contactOpen : Bool
     , copiedEmail : Maybe String
+    , menuOpen : Bool
     }
 
 
@@ -73,6 +74,8 @@ type Msg
     | CloseContact
     | CopyContact String
     | KeyPressed String
+    | ToggleMenu
+    | CloseMenu
 
 
 init : Decode.Value -> Page -> Navigation.Key -> ( Model, Cmd Msg )
@@ -97,6 +100,7 @@ init flags page navigationKey =
       , quizCategory = Nothing
       , contactOpen = False
       , copiedEmail = Nothing
+      , menuOpen = False
       }
     , Cmd.none
     )

@@ -17,7 +17,7 @@ import Pages.Quiz.View as QuizView
 view : Model -> Html App.Model.Msg
 view model =
     div [ class (shellClass model) ]
-        [ Header.view model.page model.darkMode
+        [ Header.view model.page model.darkMode model.menuOpen
         , div [ class "page" ]
             [ case model.tournament of
                 Ok tournament ->

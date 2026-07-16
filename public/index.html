@@ -20,6 +20,13 @@
         return response.json();
       };
 
+      if (typeof Elm === "undefined") {
+        document.getElementById("app").textContent =
+          "Die Anwendung wurde nicht kompiliert (elm.js fehlt oder enthält einen Kompilierfehler). " +
+          "Bitte den Dev-Server neu starten und die Seite mit Strg+Umschalt+R neu laden.";
+        throw new Error("Elm ist nicht definiert – elm.js wurde nicht korrekt geladen.");
+      }
+
       Promise.all([
         loadJson("data/teams.json"),
         loadJson("data/games.json"),

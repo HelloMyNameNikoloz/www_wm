@@ -28,6 +28,7 @@ update msg model =
                 , matchGroupingMenuOpen = False
                 , contactOpen = False
                 , copiedEmail = Nothing
+                , menuOpen = False
               }
             , Cmd.none
             )
@@ -140,10 +141,16 @@ update msg model =
 
         KeyPressed key ->
             if key == "Escape" then
-                ( { model | contactOpen = False, copiedEmail = Nothing }, Cmd.none )
+                ( { model | contactOpen = False, copiedEmail = Nothing, menuOpen = False }, Cmd.none )
 
             else
                 ( model, Cmd.none )
+
+        ToggleMenu ->
+            ( { model | menuOpen = not model.menuOpen }, Cmd.none )
+
+        CloseMenu ->
+            ( { model | menuOpen = False }, Cmd.none )
 
 
 quizQuestions : Model -> List QuizQuestion
