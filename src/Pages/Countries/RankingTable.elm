@@ -9,7 +9,7 @@ import Html.Attributes exposing (class)
 
 view : List Country -> List Team -> Html Msg
 view countries teams =
-    div [ class "table-scroll" ]
+    div [ class "table-scroll ranking-scroll" ]
         [ table [ class "data-table ranking-table" ]
             [ thead []
                 [ tr []

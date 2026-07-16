@@ -1,0 +1,242 @@
+[
+  {
+    "id": "country-most-titles",
+    "category": "Länder",
+    "prompt": "Welches Land gewann bisher die meisten Weltmeistertitel?",
+    "answers": ["Deutschland", "Argentinien", "Italien", "Brasilien"],
+    "correctIndex": 3,
+    "explanation": "Brasilien führt die Liste mit fünf Weltmeistertiteln an."
+  },
+  {
+    "id": "country-defending-champion",
+    "category": "Länder",
+    "prompt": "Welches Land ging 2026 als amtierender Weltmeister ins Turnier?",
+    "answers": ["Frankreich", "Argentinien", "Spanien", "Brasilien"],
+    "correctIndex": 1,
+    "explanation": "Argentinien gewann die Weltmeisterschaft 2022."
+  },
+  {
+    "id": "country-three-time-host",
+    "category": "Länder",
+    "prompt": "Welches Land war 2026 als erstes zum dritten Mal WM-Gastgeber?",
+    "answers": ["USA", "Deutschland", "Mexiko", "Brasilien"],
+    "correctIndex": 2,
+    "explanation": "Mexiko war nach 1970 und 1986 zum dritten Mal Gastgeber."
+  },
+  {
+    "id": "country-first-host",
+    "category": "Länder",
+    "prompt": "Welches Land richtete 1930 die erste Weltmeisterschaft aus?",
+    "answers": ["Brasilien", "Uruguay", "Italien", "Argentinien"],
+    "correctIndex": 1,
+    "explanation": "Die erste Weltmeisterschaft fand 1930 in Uruguay statt."
+  },
+  {
+    "id": "country-african-semifinalist",
+    "category": "Länder",
+    "prompt": "Welches afrikanische Land erreichte 2022 als erstes ein WM-Halbfinale?",
+    "answers": ["Senegal", "Ghana", "Marokko", "Kamerun"],
+    "correctIndex": 2,
+    "explanation": "Marokko erreichte 2022 als erstes afrikanisches Team das Halbfinale."
+  },
+  {
+    "id": "country-champion-2010",
+    "category": "Länder",
+    "prompt": "Welches Land wurde 2010 zum ersten Mal Weltmeister?",
+    "answers": ["Niederlande", "Portugal", "Spanien", "Belgien"],
+    "correctIndex": 2,
+    "explanation": "Spanien gewann 2010 seinen ersten Weltmeistertitel."
+  },
+  {
+    "id": "country-hosts-2026",
+    "category": "Länder",
+    "prompt": "Welche drei Länder richteten die WM 2026 gemeinsam aus?",
+    "answers": ["Kanada, Mexiko und USA", "USA, Brasilien und Mexiko", "Kanada, USA und Argentinien", "Mexiko, Spanien und USA"],
+    "correctIndex": 0,
+    "explanation": "Kanada, Mexiko und die USA waren die drei Gastgeber."
+  },
+  {
+    "id": "country-every-world-cup",
+    "category": "Länder",
+    "prompt": "Welches Land nahm als einziges an jeder WM-Endrunde teil?",
+    "answers": ["Deutschland", "Argentinien", "Brasilien", "Italien"],
+    "correctIndex": 2,
+    "explanation": "Brasilien war bei jeder Weltmeisterschaft seit 1930 dabei."
+  },
+  {
+    "id": "country-group-a-winner",
+    "category": "Länder",
+    "prompt": "Welches Land gewann bei der WM 2026 die Gruppe A mit neun Punkten?",
+    "answers": ["Südkorea", "Mexiko", "Südafrika", "Tschechien"],
+    "correctIndex": 1,
+    "explanation": "Mexiko gewann alle drei Gruppenspiele und holte neun Punkte."
+  },
+  {
+    "id": "country-group-h-clean-sheet",
+    "category": "Länder",
+    "prompt": "Welches Land blieb in der Gruppe H ohne Gegentor?",
+    "answers": ["Uruguay", "Spanien", "Kap Verde", "Saudi-Arabien"],
+    "correctIndex": 1,
+    "explanation": "Spanien gewann die Gruppe H mit fünf Toren und ohne Gegentreffer."
+  },
+  {
+    "id": "country-group-b-winner",
+    "category": "Länder",
+    "prompt": "Welches Land gewann bei der WM 2026 die Gruppe B?",
+    "answers": ["Kanada", "Katar", "Schweiz", "Bosnien und Herzegowina"],
+    "correctIndex": 2,
+    "explanation": "Die Schweiz gewann die Gruppe B mit sieben Punkten."
+  },
+  {
+    "id": "country-top-group-offenses",
+    "category": "Länder",
+    "prompt": "Welche drei Länder erzielten jeweils zehn Tore in der Gruppenphase?",
+    "answers": ["Deutschland, Frankreich und Niederlande", "Spanien, Brasilien und England", "Argentinien, USA und Kanada", "Portugal, Belgien und Marokko"],
+    "correctIndex": 0,
+    "explanation": "Deutschland, Frankreich und die Niederlande kamen jeweils auf zehn Gruppentore."
+  },
+  {
+    "id": "country-eliminated-brazil",
+    "category": "Länder",
+    "prompt": "Welches Land schaltete Brasilien im Achtelfinale 2026 aus?",
+    "answers": ["England", "Norwegen", "Frankreich", "Belgien"],
+    "correctIndex": 1,
+    "explanation": "Norwegen gewann das Achtelfinale gegen Brasilien mit 2:1."
+  },
+  {
+    "id": "country-eliminated-usa",
+    "category": "Länder",
+    "prompt": "Welches Land schaltete die USA im Achtelfinale 2026 aus?",
+    "answers": ["Belgien", "Spanien", "Argentinien", "Schweiz"],
+    "correctIndex": 0,
+    "explanation": "Belgien setzte sich im Achtelfinale gegen die USA durch."
+  },
+  {
+    "id": "country-first-finalist",
+    "category": "Länder",
+    "prompt": "Welches Land gewann 2026 das Halbfinale gegen Frankreich?",
+    "answers": ["England", "Argentinien", "Spanien", "Belgien"],
+    "correctIndex": 2,
+    "explanation": "Spanien gewann das Halbfinale gegen Frankreich mit 2:0."
+  },
+  {
+    "id": "country-second-finalist",
+    "category": "Länder",
+    "prompt": "Welches Land gewann 2026 das Halbfinale gegen England?",
+    "answers": ["Argentinien", "Frankreich", "Spanien", "Norwegen"],
+    "correctIndex": 0,
+    "explanation": "Argentinien gewann das Halbfinale gegen England mit 2:1."
+  },
+  {
+    "id": "country-final-pairing",
+    "category": "Länder",
+    "prompt": "Welche beiden Länder erreichten das WM-Finale 2026?",
+    "answers": ["Frankreich und England", "Spanien und Argentinien", "Belgien und Norwegen", "Brasilien und Deutschland"],
+    "correctIndex": 1,
+    "explanation": "Spanien und Argentinien erreichten das Finale."
+  },
+  {
+    "id": "country-debutant-curacao",
+    "category": "Länder",
+    "prompt": "Welches dieser Länder spielte 2026 erstmals bei einer WM-Endrunde?",
+    "answers": ["Uruguay", "Schottland", "Curaçao", "Paraguay"],
+    "correctIndex": 2,
+    "explanation": "Curaçao qualifizierte sich 2026 erstmals für eine WM-Endrunde."
+  },
+  {
+    "id": "country-host-perfect-group",
+    "category": "Länder",
+    "prompt": "Welcher Gastgeber gewann 2026 alle drei Gruppenspiele?",
+    "answers": ["Kanada", "USA", "Mexiko", "Keiner der Gastgeber"],
+    "correctIndex": 2,
+    "explanation": "Mexiko beendete die Gruppenphase mit neun Punkten."
+  },
+  {
+    "id": "country-group-l-zero",
+    "category": "Länder",
+    "prompt": "Welches Land beendete die Gruppe L ohne Punkt und ohne eigenes Tor?",
+    "answers": ["Ghana", "Panama", "Kroatien", "England"],
+    "correctIndex": 1,
+    "explanation": "Panama blieb in der Gruppe L bei null Punkten und null Toren."
+  },
+  {
+    "id": "player-youngest",
+    "category": "Spieler",
+    "prompt": "Wer war der jüngste Spieler im Kaderfeld der WM 2026?",
+    "answers": ["Lamine Yamal", "Gilberto Mora", "Hugo Sochurek", "Ibrahim Mbaye"],
+    "correctIndex": 1,
+    "explanation": "Gilberto Mora aus Mexiko war zum Turnierstart 17 Jahre und 240 Tage alt."
+  },
+  {
+    "id": "player-oldest",
+    "category": "Spieler",
+    "prompt": "Wer war der älteste Spieler im Kaderfeld der WM 2026?",
+    "answers": ["Cristiano Ronaldo", "Guillermo Ochoa", "Craig Gordon", "Luka Modrić"],
+    "correctIndex": 2,
+    "explanation": "Schottlands Torwart Craig Gordon war zum Turnierstart 43 Jahre alt."
+  },
+  {
+    "id": "player-top-scorers",
+    "category": "Spieler",
+    "prompt": "Welche beiden Spieler hatten am 16. Juli die meisten Turniertore erzielt?",
+    "answers": ["Messi und Mbappé", "Haaland und Kane", "Messi und Haaland", "Mbappé und Bellingham"],
+    "correctIndex": 0,
+    "explanation": "Lionel Messi und Kylian Mbappé standen beide bei acht Turniertoren."
+  },
+  {
+    "id": "player-top-goal-count",
+    "category": "Spieler",
+    "prompt": "Wie viele Tore hatten Messi und Mbappé am 16. Juli jeweils erzielt?",
+    "answers": ["6", "7", "8", "9"],
+    "correctIndex": 2,
+    "explanation": "Messi und Mbappé lagen jeweils bei acht Toren."
+  },
+  {
+    "id": "player-most-shots",
+    "category": "Spieler",
+    "prompt": "Welche beiden Spieler hatten am 16. Juli mit je 33 die meisten Torschüsse abgegeben?",
+    "answers": ["Mbappé und Messi", "Yamal und Haaland", "Messi und Yamal", "Mbappé und Haaland"],
+    "correctIndex": 0,
+    "explanation": "Kylian Mbappé und Lionel Messi lagen mit jeweils 33 Torschüssen gleichauf."
+  },
+  {
+    "id": "player-record-scorer",
+    "category": "Spieler",
+    "prompt": "Wer wurde während des Turniers alleiniger WM-Rekordtorschütze?",
+    "answers": ["Kylian Mbappé", "Lionel Messi", "Miroslav Klose", "Cristiano Ronaldo"],
+    "correctIndex": 1,
+    "explanation": "Lionel Messi übernahm 2026 die alleinige Führung der ewigen WM-Torschützenliste."
+  },
+  {
+    "id": "player-golden-boot-leader",
+    "category": "Spieler",
+    "prompt": "Wer führte nach den Halbfinals trotz gleicher Torzahl die Wertung für den Goldenen Schuh an?",
+    "answers": ["Kylian Mbappé", "Lionel Messi", "Harry Kane", "Jude Bellingham"],
+    "correctIndex": 1,
+    "explanation": "Messi lag wegen seiner höheren Zahl an Vorlagen vor Mbappé."
+  },
+  {
+    "id": "player-messi-assists",
+    "category": "Spieler",
+    "prompt": "Wie viele Torvorlagen hatte Lionel Messi nach dem Halbfinale gegen England im Turnier?",
+    "answers": ["2", "3", "4", "5"],
+    "correctIndex": 2,
+    "explanation": "Mit zwei Vorlagen im Halbfinale erhöhte Messi seine Turnierzahl auf vier."
+  },
+  {
+    "id": "player-england-scorers",
+    "category": "Spieler",
+    "prompt": "Welche beiden Engländer standen nach dem Halbfinale bei jeweils sechs Turniertoren?",
+    "answers": ["Kane und Bellingham", "Gordon und Rogers", "Kane und Gordon", "Bellingham und Saka"],
+    "correctIndex": 0,
+    "explanation": "Harry Kane und Jude Bellingham hatten jeweils sechs Tore erzielt."
+  },
+  {
+    "id": "player-youngest-australian-scorer",
+    "category": "Spieler",
+    "prompt": "Wer wurde 2026 Australiens jüngster Torschütze bei einer Weltmeisterschaft?",
+    "answers": ["Nestory Irankunda", "Garang Kuol", "Ajdin Hrustic", "Riley McGree"],
+    "correctIndex": 0,
+    "explanation": "Nestory Irankunda traf im Alter von 20 Jahren und 125 Tagen."
+  }
+]

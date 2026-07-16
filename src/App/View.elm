@@ -1,8 +1,9 @@
 module App.View exposing (view)
 
 import App.Model exposing (Model, Page(..))
+import Components.ContactModal as ContactModal
 import Components.Footer as Footer
-import Components.ThemeToggle as ThemeToggle
+import Components.Header as Header
 import Data.Types exposing (Tournament)
 import Html exposing (Html, div, p, text)
 import Html.Attributes exposing (class)
@@ -10,14 +11,15 @@ import Pages.Countries.View as CountriesView
 import Pages.Groups.View as GroupsView
 import Pages.Home.View as HomeView
 import Pages.Matches.View as MatchesView
+import Pages.Quiz.View as QuizView
 
 
 view : Model -> Html App.Model.Msg
 view model =
-    div [ class (if model.darkMode then "app-shell dark-mode" else "app-shell") ]
-        [ div [ class "page" ]
-            [ ThemeToggle.view model.darkMode
-            , case model.tournament of
+    div [ class (shellClass model) ]
+        [ Header.view model.page model.darkMode
+        , div [ class "page" ]
+            [ case model.tournament of
                 Ok tournament ->
                     viewPage model tournament
 
@@ -26,7 +28,15 @@ view model =
                         [ text ("Die Turnierdaten konnten nicht gelesen werden: " ++ problem) ]
             ]
         , Footer.view
+        , ContactModal.view model.contactOpen model.copiedEmail
         ]
+
+
+shellClass : Model -> String
+shellClass model =
+    "app-shell"
+        ++ (if model.darkMode then " dark-mode" else "")
+        ++ (if model.contactOpen then " contact-open" else "")
 
 
 viewPage : Model -> Tournament -> Html App.Model.Msg
@@ -43,3 +53,6 @@ viewPage model tournament =
 
         Matches ->
             MatchesView.view model tournament
+
+        Quiz ->
+            QuizView.view model model.quizRound

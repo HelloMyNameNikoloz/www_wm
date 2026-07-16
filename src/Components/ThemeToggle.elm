@@ -1,33 +1,19 @@
 module Components.ThemeToggle exposing (view)
 
 import App.Model exposing (Msg(..))
-import Html exposing (Html, button, img, span, text)
-import Html.Attributes exposing (alt, class, src)
+import Components.Icon as Icon
+import Html exposing (Html, button)
+import Html.Attributes exposing (attribute, class, type_)
 import Html.Events exposing (onClick)
 
 
 view : Bool -> Html Msg
 view darkMode =
-    divTheme
-        [ button [ class "theme-toggle", onClick ToggleDarkMode ]
-            [ img
-                [ class "theme-icon"
-                , src (if darkMode then "icons/sun.svg" else "icons/moon.svg")
-                , alt ""
-                ]
-                []
-            , span [ class "visually-hidden" ]
-                [ text
-                    (if darkMode then
-                        "Light Mode einschalten"
-                     else
-                        "Dark Mode einschalten"
-                    )
-                ]
-            ]
+    button
+        [ class "icon-button theme-toggle"
+        , type_ "button"
+        , attribute "aria-label"
+            (if darkMode then "Light Mode einschalten" else "Dark Mode einschalten")
+        , onClick ToggleDarkMode
         ]
-
-
-divTheme : List (Html Msg) -> Html Msg
-divTheme =
-    Html.div [ class "theme-row" ]
+        [ Icon.view (if darkMode then "sun" else "moon") ]

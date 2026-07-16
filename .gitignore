@@ -7,12 +7,16 @@ elm-stuff/
 # Compiled output (rebuilt on every deploy)
 public/elm.js
 public/flags/
+public/icons/lucide/
 
 # Course material (not part of the app)
 Voraussetzungen/
 
-# Vercel local project link
-.vercel/
+# Presentation (local only)
+presentation/
+
+# Local Claude Code skills (not part of the app)
+.claude/skills/
 
 # Logs
 *.log

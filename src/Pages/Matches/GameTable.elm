@@ -2,6 +2,7 @@ module Pages.Matches.GameTable exposing (view)
 
 import App.Model exposing (Msg)
 import Components.CountryLabel as CountryLabel
+import Components.MatchStatus as MatchStatus
 import Data.Types exposing (Country, Game)
 import Html exposing (Html, div, span, table, tbody, td, text, th, thead, tr)
 import Html.Attributes exposing (class)
@@ -9,7 +10,7 @@ import Html.Attributes exposing (class)
 
 view : List Country -> Bool -> Bool -> List Game -> Html Msg
 view countries showDate showStage games =
-    div [ class "table-scroll" ]
+    div [ class "table-scroll matches-scroll" ]
         [ table [ class "data-table matches-table" ]
             [ thead [] [ tr [] (headerCells showDate showStage games) ]
             , tbody [] (List.map (row countries showDate showStage) games)
@@ -40,7 +41,11 @@ fixture : List Country -> Game -> Html Msg
 fixture countries game =
     div [ class "fixture" ]
         [ span [ class "fixture-home" ] [ CountryLabel.view countries game.home ]
-        , span [ class "fixture-score" ] [ text game.score ]
+        , span [ class "fixture-score" ]
+            [ span [ class "score-value" ]
+                [ text (if game.score == "-" then "-" else game.score) ]
+            , MatchStatus.view game
+            ]
         , span [ class "fixture-away" ] [ CountryLabel.view countries game.away ]
         ]
 

@@ -1,18 +1,41 @@
 module Data.Decoder exposing (tournament)
 
-import Data.Types exposing (Game, Team, Tournament)
+import Data.Types exposing (Game, QuizQuestion, Team, Tournament)
 import Json.Decode as Decode exposing (Decoder)
 
 
 tournament : Decoder Tournament
 tournament =
-    Decode.map3
-        (\teams games countries ->
-            { teams = teams, games = games, countries = countries }
+    Decode.map4
+        (\teams games countries quiz ->
+            { teams = teams, games = games, countries = countries, quiz = quiz }
         )
         (Decode.field "teams" (Decode.list team))
         (Decode.field "games" (Decode.list game))
         (Decode.field "countries" (Decode.list country))
+        (Decode.field "quiz" (Decode.list quizQuestion))
+
+
+quizQuestion : Decoder QuizQuestion
+quizQuestion =
+    Decode.map7
+        (\id category prompt answers correctIndex explanation flagCode ->
+            { id = id
+            , category = category
+            , prompt = prompt
+            , answers = answers
+            , correctIndex = correctIndex
+            , explanation = explanation
+            , flagCode = flagCode
+            }
+        )
+        (Decode.field "id" Decode.string)
+        (Decode.field "category" Decode.string)
+        (Decode.field "prompt" Decode.string)
+        (Decode.field "answers" (Decode.list Decode.string))
+        (Decode.field "correctIndex" Decode.int)
+        (Decode.field "explanation" Decode.string)
+        (Decode.maybe (Decode.field "flagCode" Decode.string))
 
 
 country : Decoder { name : String, code : String }

@@ -1,7 +1,8 @@
 module Pages.Countries.SortMenu exposing (view)
 
 import App.Model exposing (Msg(..), SortMode(..))
-import Html exposing (Html, button, div, text)
+import Components.Icon as Icon
+import Html exposing (Html, button, div, span, text)
 import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
 
@@ -10,7 +11,9 @@ view : Bool -> Html Msg
 view isOpen =
     div [ class "sort-dropdown" ]
         [ button [ class "sort-button", onClick ToggleSortMenu ]
-            [ text (if isOpen then "Sortieren nach ▲" else "Sortieren nach ▼") ]
+            [ span [] [ text "Sortieren nach" ]
+            , Icon.view (if isOpen then "chevron-up" else "chevron-down")
+            ]
         , if isOpen then
             div [ class "sort-menu" ]
                 [ option AlphabeticalAscending "Alphabetisch auf"

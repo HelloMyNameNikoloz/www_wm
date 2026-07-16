@@ -915,7 +915,7 @@
     "stage": "Halbfinale",
     "home": "England",
     "away": "Argentinien",
-    "score": "-"
+    "score": "1:2"
   },
   {
     "number": 103,
@@ -923,7 +923,7 @@
     "time": "23:00",
     "stage": "Spiel um Platz 3",
     "home": "Frankreich",
-    "away": "Verlierer Halbfinale 2",
+    "away": "England",
     "score": "-",
     "venue": "Miami Stadium"
   },
@@ -933,7 +933,7 @@
     "time": "21:00",
     "stage": "Finale",
     "home": "Spanien",
-    "away": "Sieger Halbfinale 2",
+    "away": "Argentinien",
     "score": "-",
     "venue": "New York New Jersey Stadium"
   }

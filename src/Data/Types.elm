@@ -1,4 +1,4 @@
-module Data.Types exposing (Country, Game, Team, Tournament)
+module Data.Types exposing (Country, Game, QuizQuestion, Team, Tournament)
 
 
 type alias Country =
@@ -33,8 +33,20 @@ type alias Team =
     }
 
 
+type alias QuizQuestion =
+    { id : String
+    , category : String
+    , prompt : String
+    , answers : List String
+    , correctIndex : Int
+    , explanation : String
+    , flagCode : Maybe String
+    }
+
+
 type alias Tournament =
     { teams : List Team
     , games : List Game
     , countries : List Country
+    , quiz : List QuizQuestion
     }

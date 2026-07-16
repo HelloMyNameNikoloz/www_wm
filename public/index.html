@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fußball-WM 2026</title>
+    <title>Cup Quiz</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -23,12 +23,28 @@
       Promise.all([
         loadJson("data/teams.json"),
         loadJson("data/games.json"),
-        loadJson("data/countries.json")
+        loadJson("data/countries.json"),
+        loadJson("data/quiz.json")
       ])
-        .then(([teams, games, countries]) => {
-          Elm.Main.init({
+        .then(([teams, games, countries, quiz]) => {
+          const app = Elm.Main.init({
             node: document.getElementById("app"),
-            flags: { teams, games, countries }
+            flags: { teams, games, countries, quiz }
+          });
+
+          app.ports.copyText.subscribe(async (value) => {
+            try {
+              await navigator.clipboard.writeText(value);
+            } catch {
+              const input = document.createElement("textarea");
+              input.value = value;
+              input.style.position = "fixed";
+              input.style.opacity = "0";
+              document.body.appendChild(input);
+              input.select();
+              document.execCommand("copy");
+              input.remove();
+            }
           });
         })
         .catch((error) => {
