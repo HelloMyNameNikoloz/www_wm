@@ -1,4 +1,7 @@
-module Data.Types exposing (Country, Game, QuizQuestion, Team, Tournament)
+module Data.Types exposing
+    ( Betting, BettingMarket, BettingMatch, BettingOutcome
+    , Country, Game, QuizQuestion, Team, Tournament
+    )
 
 
 type alias Country =
@@ -44,9 +47,37 @@ type alias QuizQuestion =
     }
 
 
+type alias BettingOutcome =
+    { id : String
+    , label : String
+    , odds : Float
+    }
+
+
+type alias BettingMarket =
+    { id : String
+    , name : String
+    , outcomes : List BettingOutcome
+    }
+
+
+type alias BettingMatch =
+    { gameNumber : Int
+    , markets : List BettingMarket
+    }
+
+
+type alias Betting =
+    { startingBalance : Int
+    , updated : String
+    , matches : List BettingMatch
+    }
+
+
 type alias Tournament =
     { teams : List Team
     , games : List Game
     , countries : List Country
     , quiz : List QuizQuestion
+    , betting : Betting
     }

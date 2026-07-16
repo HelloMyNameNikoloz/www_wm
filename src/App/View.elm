@@ -12,6 +12,7 @@ import Pages.Groups.View as GroupsView
 import Pages.Home.View as HomeView
 import Pages.Matches.View as MatchesView
 import Pages.Quiz.View as QuizView
+import Pages.TipiCup.View as TipiCupView
 
 
 view : Model -> Html App.Model.Msg
@@ -56,3 +57,6 @@ viewPage model tournament =
 
         Quiz ->
             QuizView.view model model.quizRound
+
+        TipiCup ->
+            TipiCupView.view model tournament

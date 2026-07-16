@@ -31,12 +31,13 @@
         loadJson("data/teams.json"),
         loadJson("data/games.json"),
         loadJson("data/countries.json"),
-        loadJson("data/quiz.json")
+        loadJson("data/quiz.json"),
+        loadJson("data/odds.json")
       ])
-        .then(([teams, games, countries, quiz]) => {
+        .then(([teams, games, countries, quiz, betting]) => {
           const app = Elm.Main.init({
             node: document.getElementById("app"),
-            flags: { teams, games, countries, quiz }
+            flags: { teams, games, countries, quiz, betting }
           });
 
           app.ports.copyText.subscribe(async (value) => {

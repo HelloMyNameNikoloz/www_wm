@@ -19,6 +19,9 @@ fromUrl url =
         "/quiz" ->
             Quiz
 
+        "/tipicup" ->
+            TipiCup
+
         _ ->
             Home
 
@@ -41,6 +44,9 @@ path page =
         Quiz ->
             "#/quiz"
 
+        TipiCup ->
+            "#/tipicup"
+
 
 title : Page -> String
 title page =
@@ -59,3 +65,6 @@ title page =
 
         Quiz ->
             "Quiz · Cup Quiz"
+
+        TipiCup ->
+            "TipiCup · Cup Quiz"

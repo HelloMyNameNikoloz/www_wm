@@ -149,6 +149,12 @@ button:disabled {
 .icon-mail { --icon-url: url("icons/lucide/mail.svg"); }
 .icon-user-round { --icon-url: url("icons/lucide/user-round.svg"); }
 .icon-x { --icon-url: url("icons/lucide/x.svg"); }
+.icon-gem { --icon-url: url("icons/lucide/gem.svg"); }
+.icon-coins { --icon-url: url("icons/lucide/coins.svg"); }
+.icon-wallet { --icon-url: url("icons/lucide/wallet.svg"); }
+.icon-ticket { --icon-url: url("icons/lucide/ticket.svg"); }
+.icon-trash-2 { --icon-url: url("icons/lucide/trash-2.svg"); }
+.icon-rotate-ccw { --icon-url: url("icons/lucide/rotate-ccw.svg"); }
 
 .site-header {
   position: sticky;
@@ -1171,6 +1177,524 @@ button:disabled {
   background: var(--surface-hover);
 }
 
+/* ── TipiCup ─────────────────────────────────────────────── */
+
+.tipicup-intro {
+  max-width: 640px;
+  margin: -14px 0 34px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.tipicup-updated {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--muted) 82%, transparent);
+}
+
+.tipicup-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 26px;
+  align-items: start;
+}
+
+.tipicup-matches {
+  display: grid;
+  gap: 22px;
+}
+
+.tipicup-match {
+  padding: 24px 24px 22px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.tipicup-match-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.tipicup-stage {
+  color: var(--accent-strong);
+  font-size: 14px;
+  font-weight: 760;
+}
+
+.tipicup-meta,
+.tipicup-venue {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.tipicup-meta .icon,
+.tipicup-venue .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.tipicup-fixture {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin: 12px 0 4px;
+  font-size: 22px;
+  font-weight: 760;
+  letter-spacing: -0.02em;
+}
+
+.tipicup-fixture .country-label {
+  gap: 10px;
+}
+
+.tipicup-fixture .flag-icon {
+  width: 30px;
+}
+
+.tipicup-fixture-separator {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.tipicup-markets {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.tipicup-market-name {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tipicup-outcomes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.tipicup-outcome {
+  display: flex;
+  min-height: 52px;
+  padding: 9px 14px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-radius: 12px;
+}
+
+.tipicup-outcome-label {
+  font-size: 14px;
+  font-weight: 650;
+  text-align: left;
+}
+
+.tipicup-outcome-odds {
+  color: var(--accent-strong);
+  font-size: 15px;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+}
+
+.tipicup-outcome.selected {
+  color: var(--accent-strong);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: var(--accent-soft);
+}
+
+.tipicup-outcome.selected:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* Bet slip column */
+
+.tipicup-slip {
+  position: sticky;
+  top: 86px;
+  display: grid;
+  gap: 16px;
+}
+
+.tipicup-wallet {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.tipicup-wallet-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tipicup-wallet-label .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--accent-strong);
+}
+
+.tipicup-wallet-amount {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-left: auto;
+  font-size: 24px;
+  font-weight: 780;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.tipicup-currency {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.tipicup-reset {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  place-items: center;
+  color: var(--muted);
+  background: var(--surface-subtle);
+}
+
+.tipicup-reset .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.tipicup-slip-card {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.tipicup-slip-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tipicup-slip-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 760;
+  letter-spacing: -0.01em;
+}
+
+.tipicup-slip-title .icon {
+  width: 17px;
+  height: 17px;
+  color: var(--accent-strong);
+}
+
+.tipicup-clear {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  place-items: center;
+  color: var(--muted);
+  background: var(--surface-subtle);
+}
+
+.tipicup-clear .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.tipicup-slip-empty {
+  margin: 14px 0 4px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tipicup-slip-body {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.tipicup-picks {
+  display: grid;
+  gap: 8px;
+}
+
+.tipicup-pick {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-subtle);
+}
+
+.tipicup-pick-info {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.tipicup-pick-outcome {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.tipicup-pick-context {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.tipicup-pick-odds {
+  color: var(--accent-strong);
+  font-size: 14px;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+}
+
+.tipicup-pick-remove {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  flex: none;
+  place-items: center;
+  color: var(--muted);
+  border-radius: 8px;
+  background: transparent;
+  border-color: transparent;
+}
+
+.tipicup-pick-remove .icon {
+  width: 13px;
+  height: 13px;
+}
+
+.tipicup-stake {
+  display: grid;
+  gap: 8px;
+}
+
+.tipicup-stake-input {
+  width: 100%;
+  padding: 11px 13px;
+  color: inherit;
+  font: inherit;
+  font-weight: 650;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface-subtle);
+}
+
+.tipicup-stake-input:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 38%, transparent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+.tipicup-chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.tipicup-chip {
+  padding: 7px 4px;
+  font-size: 13px;
+  font-weight: 650;
+  border-radius: 9px;
+  background: var(--surface-subtle);
+}
+
+.tipicup-summary {
+  display: grid;
+  gap: 8px;
+  padding: 12px 2px 0;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.tipicup-summary-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+}
+
+.tipicup-summary-odds {
+  color: var(--text);
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+}
+
+.tipicup-payout {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.tipicup-payout-amount {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  color: var(--accent-strong);
+  font-size: 18px;
+  font-weight: 780;
+  font-variant-numeric: tabular-nums;
+}
+
+.tipicup-payout-amount .tipicup-currency {
+  color: var(--muted);
+}
+
+.tipicup-place-area {
+  display: grid;
+  gap: 8px;
+}
+
+.tipicup-place {
+  width: 100%;
+  min-height: 46px;
+  color: var(--surface);
+  font-weight: 650;
+  border-color: var(--accent);
+  border-radius: 12px;
+  background: var(--accent);
+}
+
+.tipicup-place:hover:not(:disabled) {
+  color: var(--surface);
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
+}
+
+.tipicup-place:disabled {
+  color: var(--muted);
+  border-color: var(--border);
+  background: var(--surface-subtle);
+}
+
+.tipicup-hint {
+  margin: 0;
+  color: var(--danger);
+  font-size: 13px;
+}
+
+.tipicup-bets {
+  display: grid;
+  gap: 10px;
+}
+
+.tipicup-bets-title {
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tipicup-bets-list {
+  display: grid;
+  gap: 10px;
+}
+
+.tipicup-bet {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.tipicup-bet-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tipicup-bet-type {
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.tipicup-bet-status {
+  padding: 3px 10px;
+  color: var(--upcoming);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  background: var(--upcoming-soft);
+}
+
+.tipicup-bet-picks {
+  display: grid;
+  gap: 3px;
+}
+
+.tipicup-bet-pick {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.tipicup-bet-numbers {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.tipicup-bet-payout {
+  color: var(--accent-strong);
+  font-weight: 750;
+}
+
 .contact-layer {
   position: fixed;
   z-index: 100;
@@ -1302,6 +1826,14 @@ button:disabled {
     display: flex;
     grid-column: 1 / -1;
     gap: 24px;
+  }
+
+  .tipicup-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .tipicup-slip {
+    position: static;
   }
 }
 
@@ -1500,6 +2032,22 @@ button:disabled {
 
   .quiz-result-actions button {
     width: 100%;
+  }
+
+  .tipicup-match {
+    padding: 18px 16px;
+  }
+
+  .tipicup-fixture {
+    font-size: 19px;
+  }
+
+  .tipicup-outcomes {
+    grid-template-columns: 1fr;
+  }
+
+  .tipicup-outcome {
+    min-height: 48px;
   }
 
   .footer-content {

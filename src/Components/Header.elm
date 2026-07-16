@@ -23,6 +23,7 @@ view currentPage darkMode menuOpen =
                 , navButton currentPage Groups "layout-grid" "Gruppen"
                 , navButton currentPage Matches "calendar-days" "Spiele"
                 , navButton currentPage Quiz "circle-help" "Quiz"
+                , navButton currentPage TipiCup "gem" "TipiCup"
                 ]
             , div [ class "header-controls" ]
                 [ ThemeToggle.view darkMode

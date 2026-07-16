@@ -11,9 +11,9 @@ const flagCodes = [
 
 const lucideIcons = [
   "arrow-left", "arrow-right", "calendar-days", "check", "chevron-down", "chevron-up",
-  "circle-check", "circle-help", "clock-3", "code-2", "copy", "flag", "globe-2",
-  "house", "layout-grid", "list-ordered", "mail", "map-pin", "moon", "sun",
-  "user-round", "x"
+  "circle-check", "circle-help", "clock-3", "code-2", "coins", "copy", "flag", "gem",
+  "globe-2", "house", "layout-grid", "list-ordered", "mail", "map-pin", "moon",
+  "rotate-ccw", "sun", "ticket", "trash-2", "user-round", "wallet", "x"
 ];
 
 const flagPackage = new URL("../node_modules/flag-icons/", import.meta.url);

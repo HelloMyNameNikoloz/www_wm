@@ -1,0 +1,66 @@
+{
+  "startingBalance": 1000,
+  "updated": "16.07.2026",
+  "matches": [
+    {
+      "gameNumber": 103,
+      "markets": [
+        {
+          "id": "m103-result",
+          "name": "Spielausgang · Reguläre Spielzeit",
+          "outcomes": [
+            { "id": "m103-result-home", "label": "Frankreich", "odds": 2.4 },
+            { "id": "m103-result-draw", "label": "Unentschieden", "odds": 3.3 },
+            { "id": "m103-result-away", "label": "England", "odds": 2.95 }
+          ]
+        },
+        {
+          "id": "m103-goals",
+          "name": "Tore gesamt",
+          "outcomes": [
+            { "id": "m103-goals-over", "label": "Über 2,5 Tore", "odds": 1.9 },
+            { "id": "m103-goals-under", "label": "Unter 2,5 Tore", "odds": 1.9 }
+          ]
+        },
+        {
+          "id": "m103-btts",
+          "name": "Beide Teams treffen",
+          "outcomes": [
+            { "id": "m103-btts-yes", "label": "Ja", "odds": 1.75 },
+            { "id": "m103-btts-no", "label": "Nein", "odds": 2.02 }
+          ]
+        }
+      ]
+    },
+    {
+      "gameNumber": 104,
+      "markets": [
+        {
+          "id": "m104-result",
+          "name": "Spielausgang · Reguläre Spielzeit",
+          "outcomes": [
+            { "id": "m104-result-home", "label": "Spanien", "odds": 2.45 },
+            { "id": "m104-result-draw", "label": "Unentschieden", "odds": 3.1 },
+            { "id": "m104-result-away", "label": "Argentinien", "odds": 3.0 }
+          ]
+        },
+        {
+          "id": "m104-goals",
+          "name": "Tore gesamt",
+          "outcomes": [
+            { "id": "m104-goals-over", "label": "Über 2,5 Tore", "odds": 2.05 },
+            { "id": "m104-goals-under", "label": "Unter 2,5 Tore", "odds": 1.78 }
+          ]
+        },
+        {
+          "id": "m104-btts",
+          "name": "Beide Teams treffen",
+          "outcomes": [
+            { "id": "m104-btts-yes", "label": "Ja", "odds": 1.85 },
+            { "id": "m104-btts-no", "label": "Nein", "odds": 1.92 }
+          ]
+        }
+      ]
+    }
+  ]
+}

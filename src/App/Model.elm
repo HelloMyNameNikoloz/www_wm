@@ -1,6 +1,6 @@
 module App.Model exposing
-    ( MatchGrouping(..), Model, Msg(..), Page(..), SortMode(..)
-    , currentQuizSelection, init, newQuizRound, quizScore
+    ( BetPick, MatchGrouping(..), Model, Msg(..), Page(..), PlacedBet, SortMode(..)
+    , currentQuizSelection, init, newQuizRound, quizScore, slipOdds
     )
 
 import Data.Decoder
@@ -20,6 +20,24 @@ type Page
     | Groups
     | Matches
     | Quiz
+    | TipiCup
+
+
+type alias BetPick =
+    { marketId : String
+    , outcomeId : String
+    , matchLabel : String
+    , marketName : String
+    , outcomeLabel : String
+    , odds : Float
+    }
+
+
+type alias PlacedBet =
+    { picks : List BetPick
+    , stake : Int
+    , totalOdds : Float
+    }
 
 
 type SortMode
@@ -52,6 +70,10 @@ type alias Model =
     , contactOpen : Bool
     , copiedEmail : Maybe String
     , menuOpen : Bool
+    , wallet : Int
+    , betSlip : Dict String BetPick
+    , betStake : String
+    , placedBets : List PlacedBet
     }
 
 
@@ -76,6 +98,12 @@ type Msg
     | KeyPressed String
     | ToggleMenu
     | CloseMenu
+    | ToggleBetPick BetPick
+    | RemoveBetPick String
+    | ClearBetSlip
+    | SetBetStake String
+    | PlaceBet
+    | ResetBetting
 
 
 init : Decode.Value -> Page -> Navigation.Key -> ( Model, Cmd Msg )
@@ -101,9 +129,31 @@ init flags page navigationKey =
       , contactOpen = False
       , copiedEmail = Nothing
       , menuOpen = False
+      , wallet = startingBalance tournament
+      , betSlip = Dict.empty
+      , betStake = ""
+      , placedBets = []
       }
     , Cmd.none
     )
+
+
+startingBalance : Result String Tournament -> Int
+startingBalance tournament =
+    case tournament of
+        Ok data ->
+            data.betting.startingBalance
+
+        Err _ ->
+            0
+
+
+slipOdds : Dict String BetPick -> Float
+slipOdds slip =
+    slip
+        |> Dict.values
+        |> List.map .odds
+        |> List.product
 
 
 newQuizRound : String -> Result String Tournament -> Cmd Msg

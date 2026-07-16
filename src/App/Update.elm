@@ -152,6 +152,79 @@ update msg model =
         CloseMenu ->
             ( { model | menuOpen = False }, Cmd.none )
 
+        ToggleBetPick pick ->
+            let
+                alreadySelected =
+                    Dict.get pick.marketId model.betSlip
+                        |> Maybe.map (\existing -> existing.outcomeId == pick.outcomeId)
+                        |> Maybe.withDefault False
+            in
+            ( { model
+                | betSlip =
+                    if alreadySelected then
+                        Dict.remove pick.marketId model.betSlip
+
+                    else
+                        Dict.insert pick.marketId pick model.betSlip
+              }
+            , Cmd.none
+            )
+
+        RemoveBetPick marketId ->
+            ( { model | betSlip = Dict.remove marketId model.betSlip }, Cmd.none )
+
+        ClearBetSlip ->
+            ( { model | betSlip = Dict.empty, betStake = "" }, Cmd.none )
+
+        SetBetStake value ->
+            ( { model | betStake = String.filter Char.isDigit (String.left 6 value) }
+            , Cmd.none
+            )
+
+        PlaceBet ->
+            case String.toInt model.betStake of
+                Just stake ->
+                    if stake > 0 && stake <= model.wallet && not (Dict.isEmpty model.betSlip) then
+                        ( { model
+                            | wallet = model.wallet - stake
+                            , placedBets =
+                                { picks = Dict.values model.betSlip
+                                , stake = stake
+                                , totalOdds = App.Model.slipOdds model.betSlip
+                                }
+                                    :: model.placedBets
+                            , betSlip = Dict.empty
+                            , betStake = ""
+                          }
+                        , Cmd.none
+                        )
+
+                    else
+                        ( model, Cmd.none )
+
+                Nothing ->
+                    ( model, Cmd.none )
+
+        ResetBetting ->
+            ( { model
+                | wallet = startingBalance model
+                , betSlip = Dict.empty
+                , betStake = ""
+                , placedBets = []
+              }
+            , Cmd.none
+            )
+
+
+startingBalance : Model -> Int
+startingBalance model =
+    case model.tournament of
+        Ok tournament ->
+            tournament.betting.startingBalance
+
+        Err _ ->
+            0
+
 
 quizQuestions : Model -> List QuizQuestion
 quizQuestions model =
